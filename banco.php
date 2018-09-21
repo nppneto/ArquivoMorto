@@ -1,7 +1,7 @@
 <?php
 
  $host = '127.0.0.1';
- $user = 'developer'; // unimes = 'root' ---> helbor = 'developer'
+ $user = 'root'; // unimes = 'root' ---> helbor = 'developer'
  $pass = 'vertrigo';
  $db = 'unimes_db';
 
@@ -15,7 +15,7 @@ if(mysqli_connect_errno($conn)) {
     exit('Falha critica de conexão com o banco de dados');
 }
 
-function buscar_arquivo($_conn) {
+function buscar_arquivos($_conn) {
     $sqlBuscar = "SELECT * FROM arquivo_morto";
 
     // var_dump($sqlBusca);

@@ -18,35 +18,75 @@
     </div>
 </div>
 
+<div class="custom-control custom-checkbox custom-control-inline">
+    <input type="checkbox" class="custom-control-input" id="customCheck1">
+    <label class="custom-control-label" for="customCheck1">Nome do Aluno</label>
+</div>
+<div class="custom-control custom-checkbox custom-control-inline">
+    <input type="checkbox" class="custom-control-input" id="customCheck2">
+    <label class="custom-control-label" for="customCheck2">Data de Nascimento</label>
+</div>
+<div class="custom-control custom-checkbox custom-control-inline">
+    <input type="checkbox" class="custom-control-input" id="customCheck3">
+    <label class="custom-control-label" for="customCheck3">Armário</label>
+</div>
+<div class="custom-control custom-checkbox custom-control-inline">
+    <input type="checkbox" class="custom-control-input" id="customCheck4">
+    <label class="custom-control-label" for="customCheck4">Prateleira</label>
+</div>
+<!-- <div class="custom-control custom-checkbox custom-control-inline">
+    <input type="checkbox" class="custom-control-input" id="customCheck5">
+    <label class="custom-control-label" for="customCheck5">Temporário</label>
+</div> -->
+
+
+<!-- <div class="form-group">
+    <select class="custom-select">
+        <option selected>Filtrar pesquisas por:</option>
+        <option value="1">Autônomo</option>
+        <option value="2">Efetivo</option>
+        <option value="3">Estagiário</option>
+        <option value="4">Freelancer</option>
+        <option value="5">Temporário</option>
+    </select>        
+</div> -->
+
 <div class="form-group">
 <table class="table">
     <tr>
         <th scope="col">Nome do Aluno</th>
+        <th scope="col">Data de Nascimento</th>
         <th scope="col">Armário</th>
         <th scope="col">Prateleira</th>
+        <th scope="col">Ativo</th>
         <th scope="col">Opções</th>   <!-- A nova coluna de opções -->
     </tr>
 
-    <!-- <?php #foreach($listaTarefas as $tarefa) : ?> -->
+    <?php foreach($lista_alunos as $aluno) : ?>
 
         <tr>
             <td>
-                <a href="editar.php?id=<?php #echo $tarefa['id']; ?>">
-                    <!-- <?php #echo $tarefa['nome']; ?> -->
-                    Deyvison
+                <a href="editar.php?id=<?php echo $aluno['id']; ?>">
+                    <?php echo $aluno['nome_aluno']; ?>
                 </a>
             </td>
-            <td> 133-A </td>
-            <td> P-678BW </td>
+            <td><?php echo traduz_data_para_exibir($aluno['nascimento']); ?></td>
+            <td><?php echo $aluno['armario']; ?></td>
+            <td><?php echo $aluno['prateleira']; ?></td>
+            <td><?php echo traduz_ativo($aluno['ativo']); ?></td>
             <td>
                 <!-- O campo com os links para editar e remover tarefas -->
                 <!-- <a href="editar.php?id=<?php #echo $tarefa['id']; ?>">Editar</a> -->
-                <a href="#">Detalhes</a>
-                <a href="#">Remover</a>
+                <a href="#">
+                    <button class="btn btn-primary btn-sm">Detalhes</button>
+                </a>
+                <a href="#">
+                    <button class="btn btn-primary btn-sm">Remover</button>
+                </a>
             </td>
         </tr>
 
-    <!-- <?php #endforeach; ?>     -->
+    <?php endforeach; ?>    
 </table>
 </div>
 
