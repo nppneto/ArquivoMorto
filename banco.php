@@ -1,7 +1,7 @@
 <?php
 
  $host = '127.0.0.1';
- $user = 'root'; // unimes = 'root' ---> helbor = 'developer'
+ $user = 'developer'; // unimes = 'root' ---> helbor = 'developer'
  $pass = 'vertrigo';
  $db = 'unimes_db';
 
@@ -15,7 +15,7 @@ if(mysqli_connect_errno($conn)) {
     exit('Falha critica de conexão com o banco de dados');
 }
 
-function buscar_arquivos($_conn) {
+function buscar_alunos($_conn) {
     $sqlBuscar = "SELECT * FROM arquivo_morto";
 
     // var_dump($sqlBusca);
@@ -24,13 +24,61 @@ function buscar_arquivos($_conn) {
 
     // var_dump($resultado);
 
-    $arquivos = [];
+    $alunos = [];
 
-    while($arquivo = mysqli_fetch_assoc($resultado)) {
-        $arquivos[] = $arquivo;
+    while($aluno = mysqli_fetch_assoc($resultado)) {
+        $alunos[] = $aluno;
     }
 
     // var_dump($tarefas);
 
-    return $arquivos;
+    return $alunos;
 }
+
+function inserir_alunos($_conn, $alunos)
+{
+    $sqlInserir = "
+        INSERT INTO arquivo_morto 
+        (nome_aluno, armario, prateleira, nascimento,
+        nome_mae, nome_pai, ativo)
+        VALUES 
+        (
+            '{$alunos['nome_aluno']}',
+            '{$alunos['armario']}',
+            '{$alunos['prateleira']}',
+            '{$alunos['nascimento']}',
+            '{$alunos['nome_mae']}',
+            '{$alunos['nome_pai']}',
+            1
+        )
+    ";
+
+    // print_r($sqlInserir);
+    mysqli_query($_conn, $sqlInserir);
+}
+
+function buscar_aluno_ByID($_conn, $id) {
+
+    $sqlByID = "SELECT * FROM arquivo_morto WHERE id = {$id}";
+
+    // var_dump($sqlByID);
+
+    $resultado = mysqli_query($_conn, $sqlByID);
+
+    // var_dump($resultado);
+
+    // var_dump(mysqli_fetch_assoc($resultado));
+
+    return mysqli_fetch_assoc($resultado);
+
+}
+
+function desativar_aluno($_conn, $id)
+{
+
+}
+
+// function erro_query($query, $cnt) {
+//     $result = mysqli_query($cnt, $query);
+//     var_dump( $result);
+// }

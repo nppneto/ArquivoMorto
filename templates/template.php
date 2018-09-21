@@ -34,11 +34,15 @@
     break;
     case 1:
     echo "<h1>Cadastro de Aluno</h1>";
+    break;
+    case 2:
+    echo "<h1>Edição de Aluno</h1>";
+    break;
+    case 3:
+    echo "<h1>Detalhes</h1>";
+    break;
   }
 ?>
-
-
-<!-- <?php #require "tabela.php"; ?> -->
 
 <?php if($exibir_tabela) : ?>
     <?php require 'tabela.php'; ?>

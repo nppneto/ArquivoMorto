@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro de Aluno</title>
+    <title>Editar Aluno</title>
 </head>
 <body>
     <main class="container">
-    <form action="cadastro.php" method="POST">
+    <form action="" method="POST">
     <input type="hidden" name="id" value="<?php echo $alunos['id']; ?>">
     <div class="form-group">
         <label for="exampleFormControlInput1">Nome:</label>
@@ -17,7 +17,7 @@
                 <?php echo $erros_validacao['nome_aluno']; ?>
             </span>
         <?php endif; ?>
-        <input type="text" name="nome_aluno" class="form-control" value="<?php #echo $alunos['nome_aluno']; ?>" placeholder="Nome do aluno...">
+        <input type="text" name="nome_aluno" class="form-control" value="<?php echo $alunos['nome_aluno']; ?>" placeholder="Nome do aluno...">
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput1">Nascimento:</label>
@@ -25,8 +25,8 @@
             <span class="erro">
                 <?php echo $erros_validacao['nascimento']; ?>
             </span>
-        <?php endif; ?>    
-        <input type="date" name="nascimento" class="form-control" <?php #echo $alunos['nascimento']; ?> placeholder="">
+        <?php endif; ?>
+        <input type="date" name="nascimento" class="form-control" value="<?= $alunos['nascimento']; ?>" placeholder="">
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput1">Armário:</label>
@@ -35,7 +35,7 @@
                 <?php echo $erros_validacao['armario']; ?>
             </span>
         <?php endif; ?>
-        <input type="text" name="armario" class="form-control" value="<?php #echo $alunos['armario']; ?>" placeholder="Identificação do armário...">
+        <input type="text" name="armario" class="form-control" value="<?php echo $alunos['armario']; ?>" placeholder="Identificação do armário...">
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput1">Prateleira:</label>
@@ -44,7 +44,7 @@
                 <?php echo $erros_validacao['prateleira']; ?>
             </span>
         <?php endif; ?>
-        <input type="text" name="prateleira" class="form-control" value="<?php #echo $alunos['prateleira']; ?>" placeholder="Identificação da prateleira...">
+        <input type="text" name="prateleira" class="form-control" value="<?php echo $alunos['prateleira']; ?>" placeholder="Identificação da prateleira...">
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput1">Nome do Mãe:</label>
@@ -53,7 +53,7 @@
                 <?php echo $erros_validacao['nome_mae']; ?>
             </span>
         <?php endif; ?>
-        <input type="text" name="nome_mae" class="form-control" value="<?php #echo $alunos['nome_mae']; ?>" placeholder="Nome do mãe...">
+        <input type="text" name="nome_mae" class="form-control" value="<?php echo $alunos['nome_mae']; ?>" placeholder="Nome do mãe...">
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput1">Nome do Pai:</label>
@@ -62,13 +62,13 @@
                 <?php echo $erros_validacao['nome_pai']; ?>
             </span>
         <?php endif; ?>
-        <input type="text" name="nome_pai" class="form-control" value="<?php #echo $alunos['nome_pai']; ?>" placeholder="Nome do pai...">
+        <input type="text" name="nome_pai" class="form-control" value="<?php echo $alunos['nome_pai']; ?>" placeholder="Nome do pai...">
     </div>
 
     <!-- checkbox para ativo -->
 
     <div class="form-group py-3">
-        <input class="btn btn-primary" type="submit" value="Cadastrar">
+        <input class="btn btn-primary" type="submit" value="Salvar">
     </div>
 
     </form>

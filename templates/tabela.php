@@ -11,14 +11,53 @@
 <main class="container">
 
 <!-- input-group -->
-<div class="input-group py-5">
-    <input type="text" class="form-control" placeholder="Digite aqui" aria-label="search" aria-describedby="basic-addon2">
-    <div class="input-group-append">
-        <button class="btn btn-primary" type="submit">Buscar</button>
+<div class="input-group py-0 mb-5">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10">
+            <input type="text" class="form-control py-0" placeholder="Digite aqui" aria-label="search" aria-describedby="basic-addon2">
+        </div>
+        <div class="col-md-2 py-0">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="custom-control custom-checkbox custom-control-inline">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Nome do Aluno</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">Data de Nascimento</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3">Armário</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option4">
+                    <label class="form-check-label" for="inlineRadio4">Prateleira</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option5">
+                    <label class="form-check-label" for="inlineRadio5">Ativado</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option6" >
+                    <label class="form-check-label" for="inlineRadio6">Desativado</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="custom-control custom-checkbox custom-control-inline">
     <input type="checkbox" class="custom-control-input" id="customCheck1">
     <label class="custom-control-label" for="customCheck1">Nome do Aluno</label>
 </div>
@@ -33,7 +72,8 @@
 <div class="custom-control custom-checkbox custom-control-inline">
     <input type="checkbox" class="custom-control-input" id="customCheck4">
     <label class="custom-control-label" for="customCheck4">Prateleira</label>
-</div>
+</div> -->
+
 <!-- <div class="custom-control custom-checkbox custom-control-inline">
     <input type="checkbox" class="custom-control-input" id="customCheck5">
     <label class="custom-control-label" for="customCheck5">Temporário</label>
@@ -62,11 +102,11 @@
         <th scope="col">Opções</th>   <!-- A nova coluna de opções -->
     </tr>
 
-    <?php foreach($lista_alunos as $aluno) : ?>
+    <?php foreach($listar_alunos as $aluno) : ?>
 
         <tr>
             <td>
-                <a href="editar.php?id=<?php echo $aluno['id']; ?>">
+                <a href="detalhes.php?id=<?php echo $aluno['id']; ?>">
                     <?php echo $aluno['nome_aluno']; ?>
                 </a>
             </td>
@@ -77,11 +117,11 @@
             <td>
                 <!-- O campo com os links para editar e remover tarefas -->
                 <!-- <a href="editar.php?id=<?php #echo $tarefa['id']; ?>">Editar</a> -->
-                <a href="#">
-                    <button class="btn btn-primary btn-sm">Detalhes</button>
+                <a href="editar.php?id=<?php echo $aluno['id']; ?>">
+                    <button class="btn btn-primary btn-sm">Editar</button>
                 </a>
-                <a href="#">
-                    <button class="btn btn-primary btn-sm">Remover</button>
+                <a href="excluir.php?id=<?php echo $aluno['id']; ?>">
+                    <button class="btn btn-primary btn-sm">Excluir</button>
                 </a>
             </td>
         </tr>
