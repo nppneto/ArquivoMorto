@@ -1,7 +1,7 @@
 <?php
 
  $host = '127.0.0.1';
- $user = 'developer'; // unimes = 'root' ---> helbor = 'developer'
+ $user = 'root'; // unimes = 'root' ---> helbor = 'developer'
  $pass = 'vertrigo';
  $db = 'unimes_db';
 
@@ -70,6 +70,25 @@ function buscar_aluno_ByID($_conn, $id) {
     // var_dump(mysqli_fetch_assoc($resultado));
 
     return mysqli_fetch_assoc($resultado);
+
+}
+
+function editar_alunos($_conn, $alunos) {
+
+    $sqlEditar = "
+        UPDATE arquivo_morto SET
+            nome_aluno = '{$alunos['nome_aluno']}',
+            armario = '{$alunos['armario']}',
+            prateleira = '{$alunos['prateleira']}',
+            nascimento = '{$alunos['nascimento']}',
+            nome_mae = '{$alunos['nome_mae']}',
+            nome_pai = '{$alunos['nome_pai']}',
+            ativo = '{$alunos['ativo']}'
+        WHERE id = {$alunos['id']}";
+
+    var_dump($sqlEditar);
+
+    mysqli_query($_conn, $sqlEditar);
 
 }
 

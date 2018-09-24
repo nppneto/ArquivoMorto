@@ -65,6 +65,11 @@
         <input type="text" name="nome_pai" class="form-control" value="<?php echo $alunos['nome_pai']; ?>" placeholder="Nome do pai...">
     </div>
 
+    <div>
+        <label for="ativo">Ativo:</label>
+        <?php echo $alunos['ativo']; ?>
+    </div>
+
     <!-- checkbox para ativo -->
 
     <div class="form-group py-3">

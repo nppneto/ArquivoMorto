@@ -83,6 +83,15 @@ if(!empty($_POST)) {
         $erros_validacao['nome_pai'] = 'O campo Nome do Pai é de preenchimento obrigatório!';
     }
 
+    if(array_key_exists('ativo', $_POST)) 
+    {
+        $alunos['ativo'] = $_POST['ativo'];
+    }
+    else
+    {
+        $alunos['ativo'] = 0;
+    }
+
     if(!$tem_erros)
     {
         editar_alunos($conn, $alunos);
@@ -93,6 +102,14 @@ if(!empty($_POST)) {
 }
 
 $alunos = buscar_aluno_ByID($conn, $_GET['id']);
+
+$alunos['nome_aluno'] = array_key_exists('nome_aluno', $_POST) ? $_POST['nome_aluno'] : $alunos['nome_aluno'];
+$alunos['nascimento'] = array_key_exists('nascimento', $_POST) ? $_POST['nascimento'] : $alunos['nascimento'];
+$alunos['armario'] = array_key_exists('armario', $_POST) ? $_POST['armario'] : $alunos['armario'];
+$alunos['prateleira'] = array_key_exists('prateleira', $_POST) ? $_POST['prateleira'] : $alunos['prateleira'];
+$alunos['nome_mae'] = array_key_exists('nome_mae', $_POST) ? $_POST['nome_mae'] : $alunos['nome_mae'];
+$alunos['nome_pai'] = array_key_exists('nome_pai', $_POST) ? $_POST['nome_pai'] : $alunos['nome_pai'];
+$alunos['ativo'] = array_key_exists('ativo', $_POST) ? $_POST['ativo'] : $alunos['ativo'];
 
 require "templates/template.php";
 require "templates/edit_aluno.php";

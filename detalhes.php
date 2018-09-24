@@ -3,6 +3,7 @@
 require "banco.php";
 require "helpers.php";
 
+$exibir_tabela = false;
 $cabecalho = 3;
 
 $alunos = [];
