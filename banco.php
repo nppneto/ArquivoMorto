@@ -1,7 +1,5 @@
 <?php
 
-// require "helpers.php";
-
  $host = '127.0.0.1';
  $user = 'developer'; // unimes = 'root' ---> helbor = 'developer'
  $pass = 'vertrigo';
@@ -88,7 +86,7 @@ function editar_alunos($_conn, $alunos) {
             ativo = '{$alunos['ativo']}'
         WHERE id = {$alunos['id']}";
 
-    var_dump($sqlEditar);
+    // var_dump($sqlEditar);
 
     mysqli_query($_conn, $sqlEditar);
 
@@ -101,30 +99,33 @@ function desativar_aluno($_conn, $id)
 
 function buscar_ByQuery($_conn)
 {
-    $chkValida = ($_POST['checkAtivo'] != 1) ? 0 : 1;
+    $exibir_tabela_busca = true;
+    $chkValida = (isset($_POST['checkAtivo']) != 1) ? 0 : 1;
     // echo $chkValida;
     // exit();
     $query = "SELECT * FROM arquivo_morto WHERE ativo = " .$chkValida;
-    $exibir_tabela = true;
 
     if ($_POST['rdFiltro'] == "nome" && $_POST['textBoxBusca'] != '') 
     {
-        $query .= " AND nome_aluno like %". $_POST['textBoxBusca']. "%";
+        // var_dump($_POST['rdFiltro']);
+        $query .= " AND nome_aluno like '%". $_POST['textBoxBusca']. "%'";
     } 
     else if ($_POST['rdFiltro'] == "nascimento" && $_POST['textBoxBusca'] != '')
     {
         // $exibir_tabela = true;
-        $query .= " AND nascimento = ".$_POST['textBoxBusca'];
+        // $query .= " AND nascimento = ".traduz_data_para_banco($_POST['textBoxBusca']);
+        $query .= " AND nascimento = '".traduz_data_para_banco($_POST['textBoxBusca']). "'";
+        // echo $query;
     }
     else if($_POST['rdFiltro'] == "armario" && $_POST['textBoxBusca'] != '')
     {
         // $exibir_tabela = true;
-        $query .= " AND armario like %". $_POST['textBoxBusca']. "%";
+        $query .= " AND armario like '%". $_POST['textBoxBusca']. "%'";
     }
     else if($_POST['rdFiltro'] == "prateleira" && $_POST['textBoxBusca'] != '')
     {
         // $exibir_tabela = true;
-        $query .= " AND prateleira like %". $_POST['textBoxBusca']. "%";
+        $query .= " AND prateleira like '%". $_POST['textBoxBusca']. "%'";
     }
     else
     {
@@ -133,13 +134,25 @@ function buscar_ByQuery($_conn)
     }
 
     
-    $result = mysqli_query($query);
-    // var_dump($query);
-    mysqli_fetch_assoc($result);
+    $result = mysqli_query($_conn, $query);
+
+    // var_dump($result);
+    
+    $alunos = [];
+    
+    while($aluno = mysqli_fetch_assoc($result))
+    {
+        $alunos[] = $aluno;
+    }
+
+    // var_dump($alunos);
+    return $alunos;
 
 }
 
-// require "templates/template.php";
+require "templates/template.php";
+include_once "helpers.php";
+
 
 // function erro_query($query, $cnt) {
 //     $result = mysqli_query($cnt, $query);

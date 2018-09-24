@@ -3,12 +3,14 @@
 session_start();
 
 require "templates/header.php";
-require "banco.php";
-require "helpers.php";
+include_once "banco.php";
+include_once "helpers.php";
 
-$exibir_tabela = false;
+// $cabecalho = 2;
+echo "<h1>Editar Aluno</h1>";
 $exibir_barra = false;
-$cabecalho = 2;
+$exibir_tabela = false;
+$exibir_tabela_busca = false;
 
 $tem_erros = false;
 $erros_validacao = [];

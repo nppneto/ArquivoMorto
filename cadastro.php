@@ -6,10 +6,12 @@ require "templates/header.php";
 // require "helpers.php";
 require "banco.php";
 
-
+// $cabecalho = 1;
+echo "<h1>Cadastro de Aluno</h1>";
+// echo $cabecalho;
 $exibir_tabela = false;
-$cabecalho = 1;
-
+$exibir_tabela_busca = false;
+$exibir_barra = false;
 $tem_erros = false;
 $erros_validacao = [];
 
@@ -124,4 +126,4 @@ $alunos = [
 
 require "templates/template.php";
 require "templates/cad_aluno.php";
-require "templastes/footer.php";
+require "templates/footer.php";

@@ -30,12 +30,14 @@
 
 <main class="container">
 
-<?php 
-  switch($cabecalho) {
+<?php
+  /*switch($cabecalho) {
     case 0:
+    echo $cabecalho;
     echo "<h1>Arquivo Morto</h1>";
     break;
     case 1:
+    echo "oi";
     echo "<h1>Cadastro de Aluno</h1>";
     break;
     case 2:
@@ -45,4 +47,4 @@
     echo "<h1>Detalhes</h1>";
     break;
   }
-?>
+*/?>
