@@ -2,8 +2,10 @@
 
 session_start();
 
+require "templates/header.php";
+// require "helpers.php";
 require "banco.php";
-require "helpers.php";
+
 
 $exibir_tabela = false;
 $cabecalho = 1;
@@ -97,8 +99,8 @@ if(!empty($_POST)) {
     // }
 
     if(!$tem_erros){
-        
-        print_r($alunos);
+
+        // print_r($alunos);
         inserir_alunos($conn, $alunos);
         header('Location: home.php');
         die();
@@ -107,18 +109,19 @@ if(!empty($_POST)) {
 
 }
 
-// $alunos = [
-//     'id' => 0,
-//     'nome_aluno' => (array_key_exists('nome_aluno', $_POST)) ? $_POST['nome_aluno'] : '',
-//     'nascimento' => (array_key_exists('nascimento', $_POST)) ? $_POST['nascimento'] : '',
-//     'armario' => (array_key_exists('armario', $_POST)) ? $_POST['armario'] : '',
-//     'prateleira' => (array_key_exists('prateleira', $_POST)) ? $_POST['prateleira'] : '',
-//     'nome_mae' => (array_key_exists('nome_mae', $_POST)) ? $_POST['nome_mae'] : '',
-//     'nome_pai' => (array_key_exists('nome_pai', $_POST)) ? $_POST['nome_pai'] : '',
-//     'ativo' => (array_key_exists('ativo', $_POST)) ? $_POST['ativo'] : 0
-// ];
+$alunos = [
+    'id' => 0,
+    'nome_aluno' => (array_key_exists('nome_aluno', $_POST)) ? $_POST['nome_aluno'] : '',
+    'nascimento' => (array_key_exists('nascimento', $_POST)) ? $_POST['nascimento'] : '',
+    'armario' => (array_key_exists('armario', $_POST)) ? $_POST['armario'] : '',
+    'prateleira' => (array_key_exists('prateleira', $_POST)) ? $_POST['prateleira'] : '',
+    'nome_mae' => (array_key_exists('nome_mae', $_POST)) ? $_POST['nome_mae'] : '',
+    'nome_pai' => (array_key_exists('nome_pai', $_POST)) ? $_POST['nome_pai'] : '',
+    'ativo' => (array_key_exists('ativo', $_POST)) ? $_POST['ativo'] : 0
+];
 
 // echo 'oi';
 
 require "templates/template.php";
 require "templates/cad_aluno.php";
+require "templastes/footer.php";

@@ -66,8 +66,10 @@
     </div>
 
     <div>
-        <label for="ativo">Ativo:</label>
-        <?php echo $alunos['ativo']; ?>
+        <div class="form-check form-check-inline">
+            <input <?= ($alunos['ativo']) ? 'checked' : ''; ?> class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineCheck1" value="option1">
+            <label class="form-check-label" for="inlineCheck1">Ativo</label>
+        </div>
     </div>
 
     <!-- checkbox para ativo -->

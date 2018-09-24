@@ -1,7 +1,9 @@
 <?php
 
+// require "helpers.php";
+
  $host = '127.0.0.1';
- $user = 'root'; // unimes = 'root' ---> helbor = 'developer'
+ $user = 'developer'; // unimes = 'root' ---> helbor = 'developer'
  $pass = 'vertrigo';
  $db = 'unimes_db';
 
@@ -16,7 +18,7 @@ if(mysqli_connect_errno($conn)) {
 }
 
 function buscar_alunos($_conn) {
-    $sqlBuscar = "SELECT * FROM arquivo_morto";
+    $sqlBuscar = "SELECT * FROM arquivo_morto WHERE ativo = 1";
 
     // var_dump($sqlBusca);
 
@@ -96,6 +98,48 @@ function desativar_aluno($_conn, $id)
 {
 
 }
+
+function buscar_ByQuery($_conn)
+{
+    $chkValida = ($_POST['checkAtivo'] != 1) ? 0 : 1;
+    // echo $chkValida;
+    // exit();
+    $query = "SELECT * FROM arquivo_morto WHERE ativo = " .$chkValida;
+    $exibir_tabela = true;
+
+    if ($_POST['rdFiltro'] == "nome" && $_POST['textBoxBusca'] != '') 
+    {
+        $query .= " AND nome_aluno like %". $_POST['textBoxBusca']. "%";
+    } 
+    else if ($_POST['rdFiltro'] == "nascimento" && $_POST['textBoxBusca'] != '')
+    {
+        // $exibir_tabela = true;
+        $query .= " AND nascimento = ".$_POST['textBoxBusca'];
+    }
+    else if($_POST['rdFiltro'] == "armario" && $_POST['textBoxBusca'] != '')
+    {
+        // $exibir_tabela = true;
+        $query .= " AND armario like %". $_POST['textBoxBusca']. "%";
+    }
+    else if($_POST['rdFiltro'] == "prateleira" && $_POST['textBoxBusca'] != '')
+    {
+        // $exibir_tabela = true;
+        $query .= " AND prateleira like %". $_POST['textBoxBusca']. "%";
+    }
+    else
+    {
+        // $exibir_tabela = true;
+        $query = "SELECT * FROM arquivo_morto WHERE ativo = 1";
+    }
+
+    
+    $result = mysqli_query($query);
+    // var_dump($query);
+    mysqli_fetch_assoc($result);
+
+}
+
+// require "templates/template.php";
 
 // function erro_query($query, $cnt) {
 //     $result = mysqli_query($cnt, $query);

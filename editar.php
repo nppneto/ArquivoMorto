@@ -2,10 +2,12 @@
 
 session_start();
 
+require "templates/header.php";
 require "banco.php";
 require "helpers.php";
 
 $exibir_tabela = false;
+$exibir_barra = false;
 $cabecalho = 2;
 
 $tem_erros = false;
@@ -113,3 +115,4 @@ $alunos['ativo'] = array_key_exists('ativo', $_POST) ? $_POST['ativo'] : $alunos
 
 require "templates/template.php";
 require "templates/edit_aluno.php";
+require "templates/footer.php";
