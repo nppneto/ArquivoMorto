@@ -47,13 +47,13 @@
         <input type="text" name="prateleira" class="form-control" value="<?php echo $alunos['prateleira']; ?>" placeholder="Identificação da prateleira...">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlInput1">Nome do Mãe:</label>
+        <label for="exampleFormControlInput1">Nome da Mãe:</label>
         <?php if(isset($tem_erros) && array_key_exists('nome_mae', $_POST)) : ?>
             <span class="erro">
                 <?php echo $erros_validacao['nome_mae']; ?>
             </span>
         <?php endif; ?>
-        <input type="text" name="nome_mae" class="form-control" value="<?php echo $alunos['nome_mae']; ?>" placeholder="Nome do mãe...">
+        <input type="text" name="nome_mae" class="form-control" value="<?php echo $alunos['nome_mae']; ?>" placeholder="Nome da mãe...">
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput1">Nome do Pai:</label>
@@ -67,8 +67,12 @@
 
     <div>
         <div class="form-check form-check-inline">
-            <input <?= ($alunos['ativo']) ? 'checked' : ''; ?> class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineCheck1" value="option1">
-            <label class="form-check-label" for="inlineCheck1">Ativo</label>
+            <input class="form-check-input" type="checkbox" name="ativo" value="1"
+                <?= ($alunos['ativo'] == 1) 
+                ? 'checked' 
+                : ''; 
+                ?>>
+            <label class="form-check-label">Ativo</label>
         </div>
     </div>
 
@@ -80,6 +84,6 @@
 
     </form>
     </main>
-
+<!--  -->
 </body>
 </html>

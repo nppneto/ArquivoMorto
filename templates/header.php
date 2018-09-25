@@ -47,4 +47,4 @@
     echo "<h1>Detalhes</h1>";
     break;
   }
-*/?>
+*/

@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(0);
+ini_set(“display_errors”, 0 );
+
 session_start();
 
 require "templates/header.php";
@@ -89,7 +92,8 @@ if(!empty($_POST)) {
 
     if(array_key_exists('ativo', $_POST)) 
     {
-        $alunos['ativo'] = $_POST['ativo'];
+        $alunos['ativo'] = 1;
+        // echo $_POST['ativo'];
     }
     else
     {

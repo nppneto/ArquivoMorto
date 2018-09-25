@@ -73,9 +73,9 @@
                 <a href="editar.php?id=<?php echo $aluno['id']; ?>">
                     <button class="btn btn-primary btn-sm">Editar</button>
                 </a>
-                <a href="excluir.php?id=<?php echo $aluno['id']; ?>">
+                <!-- <a href="excluir.php?id=<?php #echo $aluno['id']; ?>">
                     <button class="btn btn-primary btn-sm">Excluir</button>
-                </a>
+                </a> -->
             </td>
         </tr>
 

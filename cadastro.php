@@ -1,10 +1,13 @@
 <?php
 
+error_reporting(0);
+ini_set(“display_errors”, 0 );
+
 session_start();
 
 require "templates/header.php";
 // require "helpers.php";
-require "banco.php";
+include_once "banco.php";
 
 // $cabecalho = 1;
 echo "<h1>Cadastro de Aluno</h1>";

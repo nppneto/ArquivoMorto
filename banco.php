@@ -1,7 +1,7 @@
 <?php
 
  $host = '127.0.0.1';
- $user = 'developer'; // unimes = 'root' ---> helbor = 'developer'
+ $user = 'root'; // unimes = 'root' ---> helbor = 'developer'
  $pass = 'vertrigo';
  $db = 'unimes_db';
 
@@ -83,7 +83,7 @@ function editar_alunos($_conn, $alunos) {
             nascimento = '{$alunos['nascimento']}',
             nome_mae = '{$alunos['nome_mae']}',
             nome_pai = '{$alunos['nome_pai']}',
-            ativo = '{$alunos['ativo']}'
+            ativo = {$alunos['ativo']}
         WHERE id = {$alunos['id']}";
 
     // var_dump($sqlEditar);
@@ -94,7 +94,7 @@ function editar_alunos($_conn, $alunos) {
 
 function desativar_aluno($_conn, $id)
 {
-
+    //
 }
 
 function buscar_ByQuery($_conn)
