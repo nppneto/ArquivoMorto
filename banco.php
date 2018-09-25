@@ -100,7 +100,7 @@ function desativar_aluno($_conn, $id)
 function buscar_ByQuery($_conn)
 {
     $exibir_tabela_busca = true;
-    $chkValida = (isset($_POST['checkAtivo']) != 1) ? 0 : 1;
+    $chkValida = (isset($_POST['checkAtivo']) == null) ? 0 : 1;
     // echo $chkValida;
     // exit();
     $query = "SELECT * FROM arquivo_morto WHERE ativo = " .$chkValida;
